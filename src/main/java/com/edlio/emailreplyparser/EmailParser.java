@@ -65,8 +65,7 @@ public class EmailParser {
 		List<String> paragraph = new ArrayList<String>();
 		
 		// Scans the given email line by line and figures out which fragment it belong to.
-		for (int i=0;i<lines.size();i++){
-			String line = lines[i];
+		for (String line : lines){
 			// Strip new line at the end of the string 
 			line = StringUtils.stripEnd(line, "\n");
 			// Strip empty spaces at the end of the string
