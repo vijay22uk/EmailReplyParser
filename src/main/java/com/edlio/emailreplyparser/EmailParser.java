@@ -42,10 +42,11 @@ public class EmailParser {
 	 * @return
 	 */
 	public Email parse(String emailText) {
+		fragments = new ArrayList<FragmentDTO>();
 		compileQuoteHeaderRegexes();
 		
 		// Normalize line endings
-		emailText.replace("\r\n", "\n");
+		emailText = emailText.replace("\r\n", "\n");
 		
 		FragmentDTO fragment = null;
 		
@@ -64,7 +65,7 @@ public class EmailParser {
 		List<String> paragraph = new ArrayList<String>();
 		
 		// Scans the given email line by line and figures out which fragment it belong to.
-		for (String line : lines) {
+		for (String line : lines){
 			// Strip new line at the end of the string 
 			line = StringUtils.stripEnd(line, "\n");
 			// Strip empty spaces at the end of the string
